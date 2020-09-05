@@ -1,7 +1,7 @@
 {
   "win32-ia32-prod": {
-    "update": "https://github.com/jrxcorp/bbot/releases/download/win32-ia32-prod-1.7.62",
-    "install": "https://github.com/jrxcorp/bbot/releases/download/win32-ia32-prod-1.7.62/b.bot.Setup.1.7.62.exe",
-    "version": "1.7.62"
+    "update": "https://github.com/jrxcorp/bbot/releases/download/win32-ia32-prod-1.7.63",
+    "install": "https://github.com/jrxcorp/bbot/releases/download/win32-ia32-prod-1.7.63/b.bot.Setup.1.7.63.exe",
+    "version": "1.7.63"
   }
 }
