@@ -1,7 +1,7 @@
 {
   "darwin-x64-prod": {
-    "update": "https://github.com/jrxcorp/bbot/releases/download/darwin-x64-prod-1.7.75/release.json",
-    "install": "https://github.com/jrxcorp/bbot/releases/download/darwin-x64-prod-1.7.75/b.bot-1.7.75.dmg",
-    "version": "1.7.75"
+    "update": "https://github.com/jrxcorp/bbot/releases/download/darwin-x64-prod-1.7.76/release.json",
+    "install": "https://github.com/jrxcorp/bbot/releases/download/darwin-x64-prod-1.7.76/b.bot-1.7.76.dmg",
+    "version": "1.7.76"
   }
 }
