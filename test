@@ -1,0 +1,38 @@
+const fs = require('fs')
+const md5 = require('md5')
+const async = require('async')
+const { each, chain } = require('lodash')
+const opentype = require('opentype.js')
+const getSystemFonts = require('get-system-fonts')
+
+process.nextTick(async () => {
+  const files = await getSystemFonts()
+  const fonts = {}
+  async.eachSeries(
+    files,
+    (file, next) => {
+      try {
+        const font = opentype.loadSync(file)
+        const extension = chain(file).split('.').last().value()
+        fonts[md5(font.names.fullName.en)] = {
+          name: font.names.fullName.en,
+          data: fs.readFileSync(file).toString('base64'),
+          system: 'mac',
+          extension,
+        }
+        console.log(font.names.fullName.en, 'OK')
+      } catch {}
+      next()
+    },
+    () => {
+      fs.writeFileSync('./mac.json', JSON.stringify(fonts))
+      const css = []
+      each(fonts, (font, id) => {
+        css.push(
+          `@font-face{font-family:"${font.name}";src:url("lauth-font://${font.system}/${id}.${font.extension}");}`
+        )
+        fs.writeFileSync('./fonts.css', css.join(''))
+      })
+    }
+  )
+})
